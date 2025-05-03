@@ -4,139 +4,247 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Priyanshi | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f8f9fa;
-      color: #333;
+      font-family: 'Quicksand', sans-serif;
+      color: #fff;
+      background: #0d0d0d;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* Full-Screen Background with High-Quality Image */
     header {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: white;
-      padding: 80px 20px;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1521747116042-d8c81e6d59e0') center/cover no-repeat;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 0;
+    }
+
+    /* Transparent Gradient Overlay */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+      z-index: 1;
+    }
+
+    /* Content Styling inside the Header */
+    header .content {
+      z-index: 2;
       text-align: center;
-    }
-    header h1 {
-      font-size: 3rem;
-      animation: fadeInDown 1s ease-in-out;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-    .btn {
-      margin-top: 20px;
-      padding: 12px 28px;
-      background: white;
-      color: #2575fc;
-      border: none;
-      border-radius: 30px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #e0dbff;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      color: #2575fc;
-      margin-bottom: 20px;
-    }
-    .card {
-      background: white;
-      border-left: 6px solid #2575fc;
       padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
+
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-top: 20px;
+      animation: fadeInUp 3s ease-out;
+    }
+
+    .btn {
+      margin-top: 40px;
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.4s ease;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #764ba2, #667eea);
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* About Section */
+    section {
+      padding: 80px 20px;
+      background: #212121;
+      border-radius: 12px;
+      margin: 40px auto;
+      max-width: 1100px;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 2s ease-out;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #667eea;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    /* Card Styling */
+    .card {
+      background: #333;
+      border-left: 6px solid #667eea;
+      padding: 20px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
     .card img {
       max-width: 100%;
-      border-radius: 10px;
-      margin: 10px 0;
+      border-radius: 12px;
+      margin-bottom: 15px;
     }
-    .row {
+
+    /* Skills Section */
+    .skills {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
     }
-    .col {
-      flex: 0 0 48%;
-      margin-bottom: 20px;
+
+    .skills .card {
+      flex: 1;
+      padding: 20px;
+      background: #333;
+      border-left: 6px solid #667eea;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.4s ease;
     }
-    .col a {
+
+    .skills .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .skills h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .skills ul {
+      list-style: none;
+      color: #ddd;
+    }
+
+    .skills ul li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    /* Footer Styling */
+    footer {
+      background: #1f1f1f;
+      color: #ddd;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      z-index: 5;
+    }
+
+    footer a {
+      color: #667eea;
       text-decoration: none;
-      color: #6a11cb;
     }
-    .col a:hover {
+
+    footer a:hover {
       text-decoration: underline;
     }
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+
+    /* Animations */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .col { flex: 0 0 100%; }
+      header h1 { font-size: 3.5rem; }
+      .btn { font-size: 1rem; padding: 12px 28px; }
+      section { padding: 40px 20px; }
+      .card { margin-bottom: 30px; }
+      .skills {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>I'm Priyanshi</h1>
-    <p>BTech Student • AI/ML Enthusiast • Creative Coder</p>
-    <button class="btn" onclick="downloadResume()">Download Resume</button>
+    <div class="content">
+      <h1>I'm Priyanshi</h1>
+      <p>BTech Student • AI/ML Enthusiast • Creative Coder</p>
+      <button class="btn" onclick="downloadResume()">Download Resume</button>
+    </div>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am a driven and results-oriented BTech student specializing in AI and Machine Learning.
-       Withasolidfoundation in Python, I have actively worked on innovative projects, including AI-powered systemsandscalable web applications.
-        My ability to tackle complex challenges, coupled with a strong work ethic, hasallowed me to consistently deliver high-quality results.
-         I excel in both individual and teamsettings, demonstrating effective problem-solving and leadership skills.
-       I am passionate about continuous growthand committed to contributing meaningfully to any project.
+      I am a BTech student specializing in AI and Machine Learning from Dronacharya College of Engineering (2024-2028). I have hands-on experience with Python, C, HTML, and CSS, and I'm passionate about DSA and Deep Learning. I enjoy solving complex problems and creating innovative solutions.
     </p>
   </section>
 
-  <section id="projects">
-    <h2>Featured Project</h2>
-    <div class="card">
-      <h3>Drowsiness Detection Using MediaPipe</h3>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Eye_tracking_sample.jpg" alt="Drowsiness Detection Demo" />
-      <p>
-        This AI-powered system uses facial landmark detection with MediaPipe to monitor eye and mouth aspect ratios in real time and detect signs of driver fatigue.
-      </p>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>Python</li>
+          <li>C</li>
+          <li>HTML</li>
+          <li>CSS</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Areas of Interest</h3>
+        <ul>
+          <li>Data Structures and Algorithms (DSA)</li>
+          <li>Deep Learning</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="research">
-    <h2>Research Work</h2>
+  <section id="projects">
+    <h2>Featured Projects</h2>
     <div class="card">
-      <h3>Golden Ratio in Nature and Design</h3>
-      <p>
-        My research paper explores how the golden ratio appears in natural patterns, architecture, and modern design principles.
-      </p>
-    
+      <h3>Drowsiness Detection Using MediaPipe</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Eye_tracking_sample.jpg" alt="Drowsiness Detection Demo" />
+      <p>This AI-powered system uses facial landmark detection with MediaPipe to monitor eye and mouth aspect ratios in real-time and detect signs of driver fatigue.</p>
     </div>
   </section>
 
@@ -149,22 +257,22 @@
       </div>
       <div class="col">
         <p><strong>LinkedIn:</strong></p>
-        <p><a href="https://www.linkedin.com/in/priyanshi-22003327b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">linkedin.com/in/priyanshi</a></p>
+        <p><a href="https://www.linkedin.com/in/priyanshi-22003327b" target="_blank">linkedin.com/in/priyanshi</a></p>
       </div>
       <div class="col">
         <p><strong>GitHub:</strong></p>
-        <p><a href="https://github.com/priiyanshii02" target="_blank">github.com/priyanshi</a></p>
+        <p><a href="https://github.com/Priyanshi-27345" target="_blank">github.com/Priyanshi-27345</a></p>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 Priyanshi | Built with ❤️ using HTML, CSS & JS
+    <p>Designed by Priyanshi • &copy; 2025</p>
   </footer>
 
   <script>
     function downloadResume() {
-      window.open("RES(1).pdf", "_blank");
+        window.open("RES(1).pdf", "_blank");
     }
   </script>
 
